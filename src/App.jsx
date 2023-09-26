@@ -6,7 +6,6 @@ function App() {
     <>
       <div id="wrapper">
         <Sidebar/>
-
       </div>
     </>
   )
