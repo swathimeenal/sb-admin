@@ -2,7 +2,7 @@ import React from 'react'
 import Card from './Card'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-function Dashboard(user,setUser) {
+function Dashboard({user,setUser}) {
     console.log(user,setUser);
     let data = [
         
@@ -45,8 +45,13 @@ function Dashboard(user,setUser) {
     <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
    
 </div>
-
-{/*<!-- Content Row -->*/}
+<div className="row">
+                    {
+                        data.map((e,i)=>{
+                            return <Card cardData={e} key={i}/>
+                        })
+                    }
+ </div>
 <div className="row">
 <Table striped bordered hover>
       <thead>

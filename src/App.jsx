@@ -27,7 +27,7 @@ function App() {
      },
      {
       id:3,
-      name:"Naga",
+      name:"Nagarajan",
       email:"naga@gmail.com",
       mobile:"7867867883",
       Batch:"B53"
@@ -41,7 +41,7 @@ function App() {
      },
      {
       id:5,
-      name:"Nachiya",
+      name:"Nachiyar",
       email:"nachiya@gmail.com",
       mobile:"7867867885",
       Batch:"B53"
