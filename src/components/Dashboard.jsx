@@ -1,7 +1,11 @@
 import React from 'react'
 import Card from './Card'
-function Dashboard() {
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+function Dashboard(user,setUser) {
+    console.log(user,setUser);
     let data = [
+        
         {
             title:"EARNINGS (MONTHLY)",
             value:"$45,000",
@@ -44,12 +48,39 @@ function Dashboard() {
 
 {/*<!-- Content Row -->*/}
 <div className="row">
+<Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Batch</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+            user.map((e,i)=>{
+                return <tr key={e.id}>
+                    <td>{e.id}</td>
+                    <td>{e.name}</td>
+                    <td>{e.email}</td>
+                    <td>{e.mobile}</td>
+                    <td>{e.Batch}</td>
+                    <td>
+                        <Button variant="info">Edit</Button>
+                        &nbsp;
+                        <Button variant="danger">Delete</Button>
+                    </td>
+                 </tr>
+            })
+        }
+        
+      </tbody>
+    </Table>
 
-{
-    data.map((e,i)=>{
-         return <Card cardData={e} key={i}/>
-    })
-}
+
   
 </div>
 
@@ -59,7 +90,7 @@ function Dashboard() {
 </div>
 </div>
   
-  </>
+</>
     
 }
 
