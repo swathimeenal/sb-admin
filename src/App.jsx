@@ -55,8 +55,8 @@ function App() {
         <Route path='/dashboard' element={<Dashboard user={user}  setUser={setUser}/>}/>
         <Route path='/class' element={<Class/>}/>
         <Route path='/user' element={<User/>}/>
-        <Route path='/add-user' element={<AddUser/>}/>
-        <Route path='/edit-user/:id' element={<EditUser/>}/>                                               
+        <Route path='/add-user' element={<AddUser user={user}  setUser={setUser}/>}/>
+        <Route path='/edit-user/:id' element={<EditUser user={user}  setUser={setUser}/>}/>                                               
         <Route path='/query' element={<Query/>}/>
         <Route path='*' element={<Navigate to='/dashboard'/>}/>
       </Routes>

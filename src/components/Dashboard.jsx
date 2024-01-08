@@ -2,6 +2,7 @@ import React from 'react'
 import Card from './Card'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 function Dashboard({user,setUser}) {
     console.log(user,setUser);
     let data = [
@@ -35,6 +36,22 @@ function Dashboard({user,setUser}) {
             isProgress:false
         }
     ]
+    let navigate = useNavigate();
+    let handleDelete = (id) =>{
+        let index = 0;
+        for(let i=0;i<user.length;i++)
+        {
+            if(user[i].id==id)
+            {
+              index = i;
+              break;
+            }
+        }
+        let newArray = [...user]//deep copy or immutable
+        newArray.splice(index,1); // splice: start index,delete count 
+        setUser(newArray);
+    
+    }
   return <>
   <div id="content-wrapper" className="d-flex flex-column">
   <div id="content">
@@ -74,9 +91,9 @@ function Dashboard({user,setUser}) {
                     <td>{e.mobile}</td>
                     <td>{e.Batch}</td>
                     <td>
-                        <Button variant="info">Edit</Button>
+                        <Button variant="info" onClick={()=>navigate(`/edit-user/${e.id}`)}>Edit</Button>
                         &nbsp;
-                        <Button variant="danger">Delete</Button>
+                        <Button variant="danger" onClick={()=>{handleDelete(e.id)}}>Delete</Button>
                     </td>
                  </tr>
             })
